@@ -1,12 +1,12 @@
 library(rjd3bench)
 
-sy<-rjd3toolkit::aggregate(retail$BuildingMatAndSuppliesDealers, nfreq=1)
-sm1<-denton(retail$BookStores, sy, mul=T)
-sm2<-cholette(retail$BuildingMatAndGardenEquipAndSupp, sy, lambda = 0)
-sm3bis<-cholette(3*retail$BookStores, window(sy, end=2008), lambda = 0.98, bias = "None")
+sy<-rjd3toolkit::aggregate(rjd3toolkit::retail$BuildingMatAndSuppliesDealers, nfreq=1)
+sm1<-denton(rjd3toolkit::retail$BookStores, sy, mul=T)
+sm2<-cholette(rjd3toolkit::retail$BuildingMatAndGardenEquipAndSupp, sy, lambda = 0)
+sm3bis<-cholette(3*rjd3toolkit::retail$BookStores, window(sy, end=2008), lambda = 0.98, bias = "None")
 
-sm4<-grp(retail$BuildingMatAndGardenEquipAndSupp, sy)
-sm5<-cubicspline(retail$BuildingMatAndGardenEquipAndSupp, conversion="Sum", sy)
+sm4<-grp(rjd3toolkit::retail$BuildingMatAndGardenEquipAndSupp, sy)
+sm5<-cubicspline(rjd3toolkit::retail$BuildingMatAndGardenEquipAndSupp, conversion="Sum", sy)
 
 
 ts.plot(sm1, sm2, sm3bis, sm4, sm5, col=c("red", "blue", "gray", "green", "magenta"))

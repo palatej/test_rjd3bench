@@ -2,14 +2,14 @@ library(rjd3bench)
 
 
 input<-list()
-input[["a1"]]<-retail$WomensClothingStores
-input[["a2"]]<-retail$WarehouseClubsAndSuperstores
-input[["a3"]]<-retail$ShoeStores
-input[["a4"]]<-retail$MensClothingStores
-input[["s1"]]<-retail$FamilyClothingStores
-input[["s2"]]<-retail$SportingGoodsStores
-input[["s3"]]<-retail$ClothingStores
-input[["y1"]]<-rjd3toolkit::aggregate(retail$BookStores, nfreq=1)
+input[["a1"]]<-rjd3toolkit::retail$WomensClothingStores
+input[["a2"]]<-rjd3toolkit::retail$WarehouseClubsAndSuperstores
+input[["a3"]]<-rjd3toolkit::retail$ShoeStores
+input[["a4"]]<-rjd3toolkit::retail$MensClothingStores
+input[["s1"]]<-rjd3toolkit::retail$FamilyClothingStores
+input[["s2"]]<-rjd3toolkit::retail$SportingGoodsStores
+input[["s3"]]<-rjd3toolkit::retail$ClothingStores
+input[["y1"]]<-rjd3toolkit::aggregate(rjd3toolkit::retail$BookStores, nfreq=1)
 
 cc<-c("s1=a1+a2", "s2=a3+a4", "s3=a1+a4")
 tc<-c("y1=sum(a2)")
