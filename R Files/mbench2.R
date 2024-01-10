@@ -1,9 +1,9 @@
 library(rjd3bench)
-library(RJDemetra3)
+library(rjdemetra3)
 
 m<-read.csv("./Data/exports.csv")
 direct<-ts(data = rowSums(m), frequency = 12, start=c(1995, 1))
-sa<-rjd3x13::fast.x13(direct)
+sa<-rjd3x13::fast_x13(direct)
 sadirect<-sa$final$d11final
 
 dic<-list()
@@ -12,7 +12,7 @@ dic[["y"]]<-sadirect
 saindirect<-NULL
 for (i in 1:dim(m)[2]){
     y<-ts(m[,i], frequency = 12, start=c(1995, 1))
-  say<-rjd3x13::fast.x13(y)$final$d11final
+  say<-rjd3x13::fast_x13(y)$final$d11final
   
   if (! is.null(saindirect))
     saindirect<-saindirect+say
